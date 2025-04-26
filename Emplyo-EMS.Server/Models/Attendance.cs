@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Emplyo_EMS.Server.Models
 {
-
     public class Attendance
     {
         [Key]
@@ -28,5 +27,4 @@ namespace Emplyo_EMS.Server.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
-
 }
