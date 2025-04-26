@@ -150,6 +150,47 @@ namespace Emplyo_EMS.Server.Data
             modelBuilder.Entity<Payroll>()
                 .Property(p => p.NetSalary)
                 .HasColumnType("decimal(18,2)");
+
+            // Seed Roles
+            modelBuilder.Entity<Role>().HasData(
+                new Role { RoleId = 1, RoleName = "SuperAdmin" },
+                new Role { RoleId = 2, RoleName = "HR" },
+                new Role { RoleId = 3, RoleName = "Manager" },
+                new Role { RoleId = 4, RoleName = "Employee" }
+            );
+
+            // Use static, hardcoded values
+            var superAdminUserId = 1;
+            var superAdminEmployeeId = 1;
+            var passwordHash = "$2a$11$xvJzqg6pM6ODxYOklq6y3OBZT6gZ.Wcf4wL5MSjNKn6kPZAVv4C4C"; // Pre-generated bcrypt hash of "superadmin"
+            var staticDate = new DateTime(2024, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                UserId = superAdminUserId,
+                Username = "superadmin",
+                PasswordHash = passwordHash,
+                Email = "superadmin@emplyo.com",
+                RoleId = 1,
+                CreatedAt = staticDate,
+                UpdatedAt = staticDate
+            });
+
+            modelBuilder.Entity<Employee>().HasData(new Employee
+            {
+                EmployeeId = superAdminEmployeeId,
+                UserId = superAdminUserId,
+                FirstName = "Super",
+                LastName = "Admin",
+                DepartmentId = null,
+                JoinDate = staticDate,
+                Email = "superadmin@emplyo.com",
+                Salary = 0,
+                CreatedAt = staticDate,
+                UpdatedAt = staticDate,
+                ManagerId = null
+            });
+
         }
     }
 }
