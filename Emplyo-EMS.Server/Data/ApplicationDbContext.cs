@@ -21,6 +21,8 @@ namespace Emplyo_EMS.Server.Data
         public DbSet<Performance> Performances { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<ProfileUpdateRequest> ProfileUpdateRequests { get; set; }
+
 
         // OnModelCreating method where we configure the relationships
         protected override void OnModelCreating(ModelBuilder modelBuilder)

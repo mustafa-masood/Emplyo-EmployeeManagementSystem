@@ -1,6 +1,6 @@
 @Emplyo_EMS.Server_HostAddress = http://localhost:5050
 
-GET {{Emplyo_EMS.Server_HostAddress}}/weatherforecast/
+GET {{Emplyo_EMS.Server_HostAddress}}/emplyo/
 Accept: application/json
 
 ###

@@ -25,6 +25,7 @@ namespace Emplyo_EMS.Server.Models
         [Required, StringLength(20)]
         public string Status { get; set; } // Present, Absent, Late
 
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
